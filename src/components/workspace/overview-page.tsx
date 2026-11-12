@@ -92,7 +92,7 @@ export function OverviewPage() {
           </Button>
         </div>
       )}
-      <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
+      <div className="grid gap-3 min-[375px]:grid-cols-2 xl:grid-cols-4">
         <Metric
           featured
           label={t("overview.balance")}

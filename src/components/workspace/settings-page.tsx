@@ -12,7 +12,7 @@ import {
 } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { useTheme } from "next-themes";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { useRef, useState, type ChangeEvent } from "react";
 import { toast } from "sonner";
 import {
@@ -45,7 +45,6 @@ type Pending = { type: "import"; vault: Vault } | { type: "reset" | "demo" };
 export function SettingsPage() {
   const t = useTranslations();
   const locale = useLocale();
-  const router = useRouter();
   const pathname = usePathname();
   const { theme, setTheme } = useTheme();
   const vault = useVaultData();
@@ -136,7 +135,7 @@ export function SettingsPage() {
                 value={locale}
                 onChange={(event) => {
                   const value = event.target.value;
-                  if (isLocale(value)) router.replace(localizedPath(value, pathname));
+                  if (isLocale(value)) window.location.assign(localizedPath(value, pathname));
                 }}
               >
                 <option lang="en" value="en">

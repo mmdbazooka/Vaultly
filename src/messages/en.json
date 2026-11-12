@@ -86,7 +86,7 @@
     "open": "Open dashboard",
     "explore": "Explore features",
     "noAccount": "No account needed",
-    "preview": "Live product preview",
+    "preview": "Product preview",
     "previewPeriod": "Last 6 months",
     "previewBalance": "Total balance",
     "previewNet": "Net cash flow",
@@ -107,7 +107,6 @@
     "privacyDescription": "Vaultly saves your workspace on this device. Export a JSON backup whenever you want to keep a copy or move to another browser.",
     "finalTitle": "Start with a clearer picture.",
     "finalDescription": "Explore a sample workspace, then start fresh when you’re ready.",
-    "footer": "Personal finance, at your pace.",
     "github": "Source on GitHub"
   },
   "overview": {

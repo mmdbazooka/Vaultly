@@ -35,11 +35,16 @@
     "@types/node": "^22.0.0",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
-    "eslint": "^9.0.0",
+    "eslint": "^9.39.5",
     "eslint-config-next": "16.4.6",
     "prettier": "^3.6.0",
     "tailwindcss": "^4.3.5",
     "tsx": "^4.21.0",
     "typescript": "^5.9.0"
+  },
+  "overrides": {
+    "@typescript-eslint/typescript-estree": {
+      "minimatch": "^11.0.8"
+    }
   }
 }

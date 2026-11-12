@@ -129,7 +129,7 @@ export function SpendingChart({
   }
 
   return (
-    <Panel>
+    <Panel className="spending-panel">
       <PanelHeader title={t("overview.byCategory")} />
       {total === 0 ? (
         <EmptyState
@@ -138,7 +138,10 @@ export function SpendingChart({
           icon={PieChart}
         />
       ) : (
-        <div className="grid gap-4 lg:grid-cols-[auto_minmax(0,1fr)] lg:items-center xl:grid-cols-1 2xl:grid-cols-[auto_minmax(0,1fr)]">
+        <div className="spending-layout">
+          <p className="sr-only">
+            {t("overview.spent")} {format.money(total)}
+          </p>
           <div
             className="donut"
             aria-hidden="true"

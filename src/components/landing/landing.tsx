@@ -223,6 +223,7 @@ function FeatureExample({ id }: { id: (typeof features)[number]["id"] }) {
 
 export function Landing() {
   const t = useTranslations("landing");
+  const nav = useTranslations("nav");
   const locale = useLocale();
   const c = useTranslations("common");
 
@@ -233,7 +234,7 @@ export function Landing() {
           <Brand />
           <nav
             className="hidden items-center gap-7 text-sm font-medium text-muted md:flex"
-            aria-label={useTranslations("nav")("main")}
+            aria-label={nav("main")}
           >
             <a className="hover:text-foreground" href="#features">
               {t("features")}
@@ -270,10 +271,13 @@ export function Landing() {
             </h1>
             <p className="hero-subtitle mt-5 max-w-[26rem] leading-relaxed">{t("subtitle")}</p>
             <div className="mt-6 flex flex-wrap gap-2.5 sm:mt-8">
-              <DashboardLink className="min-h-12 px-4" />
+              <DashboardLink className="min-h-11 px-3 sm:min-h-12 sm:px-4" />
               <a
                 href="#features"
-                className={buttonClass("secondary", "hero-secondary min-h-12 px-4")}
+                className={buttonClass(
+                  "secondary",
+                  "hero-secondary min-h-11 px-3 sm:min-h-12 sm:px-4",
+                )}
               >
                 {t("explore")}
               </a>
@@ -356,10 +360,7 @@ export function Landing() {
       </main>
       <footer className="border-t border-line">
         <div className="site-width flex flex-wrap items-center justify-between gap-4 py-7">
-          <div className="flex flex-wrap items-center gap-4">
-            <Brand />
-            <p className="text-sm text-muted">{t("footer")}</p>
-          </div>
+          <Brand />
           <a className="text-link" href="https://github.com/mmdbazooka/Vaultly" lang={locale}>
             <Code2 size={17} aria-hidden="true" />
             {t("github")}

@@ -59,6 +59,10 @@ test("a payment records one expense and advances its schedule atomically", () =>
   assert.equal(after.recurring[0].nextDate, "2028-02-29");
   assert.equal(nextDueDate(after.recurring[0]), "2028-03-31");
   assert.throws(() => recordPayment(after, item, "repeat", "2028-01-31"), { message: "stale" });
+  const edited = { ...vault, recurring: [{ ...item, amount: item.amount + 100 }] };
+  assert.throws(() => recordPayment(edited, item, "old-amount", "2028-01-31"), {
+    message: "stale",
+  });
 });
 
 test("a backup must preserve IDs, account references, and its version", () => {

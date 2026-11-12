@@ -17,7 +17,7 @@ export function Brand({ className }: { className?: string }) {
       aria-label="Vaultly"
     >
       <span className="brand-mark" aria-hidden="true" />
-      <span className="display" lang="en">
+      <span className="display" lang="en" dir="ltr">
         Vaultly<span className="brand-period">.</span>
       </span>
     </Link>
@@ -29,17 +29,17 @@ export function LocaleSwitch() {
   const t = useTranslations("common");
   const pathname = usePathname();
   const next = locale === "en" ? "fa" : "en";
+  const label = next === "fa" ? "فارسی" : "EN";
   return (
-    <Link
+    <a
       className={buttonClass("ghost", "locale-toggle")}
       href={localizedPath(next, pathname)}
       hrefLang={next}
-      aria-label={t("languageSwitch")}
-      prefetch={false}
+      aria-label={label + " · " + t("languageSwitch")}
     >
       <Globe2 size={17} aria-hidden="true" />
-      <span lang={next}>{next === "fa" ? "فارسی" : "EN"}</span>
-    </Link>
+      <span lang={next}>{label}</span>
+    </a>
   );
 }
 

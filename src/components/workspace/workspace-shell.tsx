@@ -118,11 +118,8 @@ export function WorkspaceShell({ children }: { children: ReactNode }) {
                 <IconButton icon={Menu} label={t("menu")} className="lg:hidden" />
               </Dialog.Trigger>
               <Dialog.Portal>
-                <Dialog.Overlay className="dialog-overlay lg:hidden" />
-                <Dialog.Content
-                  className="workspace-drawer lg:hidden"
-                  aria-describedby={undefined}
-                >
+                <Dialog.Overlay className="dialog-overlay" />
+                <Dialog.Content className="workspace-drawer" aria-describedby={undefined}>
                   <Dialog.Title className="sr-only">{t("navigation")}</Dialog.Title>
                   <WorkspaceNav onNavigate={() => setOpen(false)} />
                 </Dialog.Content>

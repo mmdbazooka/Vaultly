@@ -67,7 +67,20 @@ export function recordPayment(
   date: string,
 ): Vault {
   const item = vault.recurring.find((entry) => entry.id === expected.id);
-  if (!item?.active || item.nextDate !== expected.nextDate) throw new VaultError("stale");
+  if (
+    !item?.active ||
+    item.nextDate !== expected.nextDate ||
+    item.amount !== expected.amount ||
+    item.accountId !== expected.accountId ||
+    item.category !== expected.category ||
+    item.name !== expected.name ||
+    item.cadence !== expected.cadence ||
+    item.anchorDay !== expected.anchorDay
+  ) {
+    throw new VaultError("stale");
+  }
+  const nextDate = nextDueDate(item);
+  if (nextDate <= item.nextDate) throw new VaultError("invalid");
 
   const updated = putTransaction(
     vault,
@@ -86,6 +99,6 @@ export function recordPayment(
   );
   return {
     ...updated,
-    recurring: putRecord(updated.recurring, { ...item, nextDate: nextDueDate(item) }, true),
+    recurring: putRecord(updated.recurring, { ...item, nextDate }, true),
   };
 }
