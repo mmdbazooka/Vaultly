@@ -1,0 +1,10 @@
+node_modules/
+/.next/
+/out/
+/coverage/
+/.sites-runtime/
+.env*
+*.log
+*.tsbuildinfo
+next-env.d.ts
+.DS_Store
