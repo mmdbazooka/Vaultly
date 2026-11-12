@@ -892,6 +892,9 @@
     .cashflow-point {
       grid-template-rows: 7.5rem 1.45rem;
     }
+    .metric-value {
+      font-size: clamp(1.2rem, 5.25vw, 1.5rem);
+    }
   }
 
   @media (min-width: 1024px) {
